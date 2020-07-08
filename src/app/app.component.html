@@ -15,8 +15,8 @@
         <img src="assets/imgs/nice-fish.png" width="45" (click)="showSuccess()">
       </a>
     </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
+    <div class="navbar-collapse collapse" [ngClass]="{'in':showToggleMenu===true}">
+      <ul class="nav navbar-nav"  (click)="onMenuToggle()">
         <li routerLinkActive="active">
           <a>读</a>
         </li>
@@ -24,11 +24,11 @@
           <a>写</a>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
+      <ul class="nav navbar-nav navbar-right"  (click)="onMenuToggle()">
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
           <a>登录</a>
         </li>
-        <li >
+        <li routerLinkActive="active">
           <a>注册</a>
         </li>
         <li>
