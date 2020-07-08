@@ -1,6 +1,8 @@
 <!-- 顶部导航 -->
 <div class="navbar navbar-fixed-top main-nav" role="navigation">
   <div class="container">
+    <!-- 全局消息 -->
+    <p-toast position="top-center"></p-toast>
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"
               (click)="onMenuToggle()">
@@ -10,7 +12,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand-my">
-        <img src="assets/imgs/nice-fish.png" width="45">
+        <img src="assets/imgs/nice-fish.png" width="45" (click)="showSuccess()">
       </a>
     </div>
     <div class="navbar-collapse collapse">

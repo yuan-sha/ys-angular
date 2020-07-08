@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,15 @@ export class AppComponent {
 
   onMenuToggle() {
     this.showToggleMenu = !this.showToggleMenu;
+  }
+
+  constructor(
+    private messageService: MessageService
+  ) {
+  }
+
+  showSuccess(){
+    this.messageService.add({severity: 'success', summary: 'SuccessMessage', detail: 'Ordersubmitted'});
   }
 
 }
