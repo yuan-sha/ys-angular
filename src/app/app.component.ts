@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ys-angular';
+  public showToggleMenu = false;
+
+  onMenuToggle() {
+    this.showToggleMenu = !this.showToggleMenu;
+  }
+
 }
