@@ -18,21 +18,21 @@
     <div class="navbar-collapse collapse" [ngClass]="{'in':showToggleMenu===true}">
       <ul class="nav navbar-nav"  (click)="onMenuToggle()">
         <li routerLinkActive="active">
-          <a>读</a>
+          <a>{{'app.read'|translate}}</a>
         </li>
         <li routerLinkActive="active">
-          <a>写</a>
+          <a>{{'app.write'|translate}}</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right"  (click)="onMenuToggle()">
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <a>登录</a>
+          <a>{{'app.signin'|translate}}</a>
         </li>
         <li routerLinkActive="active">
-          <a>注册</a>
+          <a>{{'app.signup'|translate}}</a>
         </li>
         <li>
-          <a>改变语言</a>
+          <a (click)="changeLanguage(language)">{{ languageBtn }}</a>
         </li>
       </ul>
     </div>

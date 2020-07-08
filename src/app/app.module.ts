@@ -9,6 +9,16 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// 全球还模块
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
+// 全球还模块
+export function createTranslateHttpLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
     AppComponent
@@ -18,7 +28,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     // 通知模块
     ToastModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    // 全球还模块
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateHttpLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     // 通知模块
