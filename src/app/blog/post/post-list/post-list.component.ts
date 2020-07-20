@@ -59,7 +59,8 @@ export class PostListComponent implements OnInit {
   }
 
   public pageChanged(event: any): void {
-    const temp = event.page + 1;
+    // tslint:disable-next-line:radix
+    const temp = parseInt(event.page) + 1;
     this.router.navigateByUrl('posts/page/' + temp);
   }
 
