@@ -33,7 +33,12 @@
     "signUp": "SignUp"
   },
   "signIn": {
-    "signIn": "Sign In"
+    "signIn": "Sign In",
+    "email": "Email",
+    "needEmail": "Email Address",
+    "password": "Password",
+    "password-placeholder": "Password, at least 8 characters.",
+    "password-forget": "Forget Password"
   },
   "search": "search",
   "submit": "Submit",
