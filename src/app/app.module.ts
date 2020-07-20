@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignInComponent } from './blog/user/sign-in/sign-in.component';
+import { SignUpComponent } from './blog/user/sign-up/sign-up.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -25,7 +26,8 @@ export function createTranslateHttpLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    SignInComponent
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
