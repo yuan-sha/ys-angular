@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SignInComponent } from './blog/user/sign-in/sign-in.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // 通知模块
 import { ToastModule } from 'primeng/toast';
@@ -21,7 +24,8 @@ export function createTranslateHttpLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,9 @@ export function createTranslateHttpLoader(http: HttpClient) {
         useFactory: (createTranslateHttpLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     // 通知模块

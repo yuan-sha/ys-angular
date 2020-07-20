@@ -11,6 +11,7 @@ export class AppComponent implements OnInit{
   public showToggleMenu = false;
   languageBtn;
   language;
+  public currentUser: any;
 
   constructor(
     private messageService: MessageService,
@@ -44,6 +45,9 @@ export class AppComponent implements OnInit{
 
   showSuccess(){
     this.messageService.add({severity: 'success', summary: 'SuccessMessage', detail: 'Ordersubmitted'});
+  }
+
+  public doLogout(): void {
   }
 
 }

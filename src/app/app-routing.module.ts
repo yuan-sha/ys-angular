@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { SignInComponent } from './blog/user/sign-in/sign-in.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'posts',
     loadChildren: () => import('./blog/home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: 'login',
+    component: SignInComponent
   }
 ];
 
