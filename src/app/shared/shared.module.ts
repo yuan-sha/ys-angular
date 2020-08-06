@@ -14,7 +14,8 @@ import { SignInComponent } from '../blog/user/sign-in/sign-in.component';
   exports: [
     SignInComponent,
     CommonModule,
-    FormsModule
+    FormsModule,
+    TranslateModule
   ],
   imports: [
     CommonModule,
