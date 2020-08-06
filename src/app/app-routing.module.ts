@@ -19,6 +19,10 @@ const routes: Routes = [
     loadChildren: () => import('./blog/home/home.module').then(m => m.HomeModule)
   },
   {
+    path: 'post',
+    loadChildren: () => import('./blog/post/post.module').then(m => m.PostModule)
+  },
+  {
     path: 'login',
     component: SignInComponent
   },

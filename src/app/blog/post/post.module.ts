@@ -6,9 +6,10 @@ import { PostListComponent } from './post-list/post-list.component';
 import { PostHeadlingComponent } from './post-headling/post-headling.component';
 
 import {PaginatorModule} from 'primeng/paginator';
+import { PostDetailMainComponent } from './post-detail-main/post-detail-main.component';
 
 @NgModule({
-  declarations: [PostListComponent, PostHeadlingComponent],
+  declarations: [PostListComponent, PostHeadlingComponent, PostDetailMainComponent],
   imports: [
     CommonModule,
     PostRoutingModule,
