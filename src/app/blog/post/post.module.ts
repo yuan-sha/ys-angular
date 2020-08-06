@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../shared/shared.module';
 
 import { PostRoutingModule } from './post-routing.module';
 import { PostListComponent } from './post-list/post-list.component';
@@ -17,7 +17,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
     PostDetailComponent
   ],
   imports: [
-    CommonModule,
+    SharedModule,
     PostRoutingModule,
     PaginatorModule
   ]

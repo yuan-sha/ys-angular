@@ -13,6 +13,10 @@ import { SignUpComponent } from '../blog/user/sign-up/sign-up.component';
     SignInComponent,
     SignUpComponent
   ],
+  exports: [
+    SignInComponent,
+    CommonModule
+  ],
   imports: [
     CommonModule,
     FormsModule,
