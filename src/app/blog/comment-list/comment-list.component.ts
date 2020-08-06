@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CommentListService } from './comment-list.service';
 
 @Component({
   selector: 'app-comment-list',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comment-list.component.css']
 })
 export class CommentListComponent implements OnInit {
+  public comments: Array<any>;
 
-  constructor() { }
+  constructor(public commentService: CommentListService,
+              public activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activeRoute.params.subscribe(
+      params => this.getCommentList(params.id)
+    );
+  }
+
+  public getCommentList(postId: number) {
+    alert(postId);
+    this.commentService.getCommentList(postId)
+      .subscribe(
+        data => {
+          this.comments = data.items;
+        },
+        error => console.error(error)
+      );
   }
 
 }
