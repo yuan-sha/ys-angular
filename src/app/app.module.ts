@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
+import { SignUpComponent } from './blog/user/sign-up/sign-up.component';
 
 // 通知模块
 import { ToastModule } from 'primeng/toast';
@@ -22,7 +23,8 @@ export function createTranslateHttpLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ export function createTranslateHttpLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers: [
     // 通知模块
