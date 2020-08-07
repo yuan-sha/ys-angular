@@ -20,7 +20,6 @@ export class CommentListComponent implements OnInit {
   }
 
   public getCommentList(postId: number) {
-    alert(postId);
     this.commentService.getCommentList(postId)
       .subscribe(
         data => {
