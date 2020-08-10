@@ -4,18 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { SignInComponent } from '../blog/user/sign-in/sign-in.component';
-
+import { SanitizeHtmlPipe } from './pipes/sanitize-html-pipe';
 
 
 @NgModule({
   declarations: [
-    SignInComponent
+    SignInComponent,
+    SanitizeHtmlPipe
   ],
   exports: [
     SignInComponent,
     CommonModule,
     FormsModule,
-    TranslateModule
+    TranslateModule,
+    SanitizeHtmlPipe
   ],
   imports: [
     CommonModule,
