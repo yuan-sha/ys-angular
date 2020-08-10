@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fadeIn } from '../../../shared/animations/fade-in';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,7 +12,7 @@ export class SignInComponent implements OnInit {
   public user: any = {};
   public error: Error;
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +21,7 @@ export class SignInComponent implements OnInit {
   }
 
   public retrievePwd(): void {
+    this.router.navigateByUrl('retrievepwd');
   }
 
 }

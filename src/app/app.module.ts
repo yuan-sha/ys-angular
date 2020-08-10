@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { SignUpComponent } from './blog/user/sign-up/sign-up.component';
+import { RetrievePwdComponent } from '../app/blog/user/retrieve-pwd/retrieve-pwd.component';
 
 // 通知模块
 import { ToastModule } from 'primeng/toast';
@@ -24,7 +25,8 @@ export function createTranslateHttpLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    SignUpComponent
+    SignUpComponent,
+    RetrievePwdComponent
   ],
   imports: [
     BrowserModule,

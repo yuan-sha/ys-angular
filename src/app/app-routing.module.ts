@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SignInComponent } from './blog/user/sign-in/sign-in.component';
 import { SignUpComponent } from './blog/user/sign-up/sign-up.component';
+import {RetrievePwdComponent} from './blog/user/retrieve-pwd/retrieve-pwd.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: SignUpComponent
+  },
+  {
+    path: 'retrievepwd',
+    component: RetrievePwdComponent
   }
 ];
 
