@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { TranslateService } from '@ngx-translate/core';
 import { SignInService } from './blog/user/sign-in/sign-in.service';
@@ -16,8 +16,12 @@ export class AppComponent implements OnInit{
   languageBtn;
   language;
   public currentUser: any;
+  // tslint:disable-next-line:ban-types
+  private globalClickCallbackFn: Function;
 
   constructor(
+    public elementRef: ElementRef,
+    public renderer: Renderer2,
     public router: Router,
     private messageService: MessageService,
     public translateService: TranslateService,
@@ -27,6 +31,10 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
+    this.globalClickCallbackFn = this.renderer.listen(this.elementRef.nativeElement, 'click', (event: any) => {
+      console.log('全局监听点击事件>' + event);
+    });
+
     const browserLang = this.translateService.getBrowserLang();
     this.changeLanguage(browserLang);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
