@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { TranslateService } from '@ngx-translate/core';
 import { SignInService } from './blog/user/sign-in/sign-in.service';
-import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterState, RouterStateSnapshot } from '@angular/router';
+import { SignUpService } from './blog/user/sign-up/sign-up.service';
+import { ActivatedRoute, Router, RouterState, RouterStateSnapshot } from '@angular/router';
 import { merge } from 'rxjs';
 
 @Component({
@@ -17,11 +18,11 @@ export class AppComponent implements OnInit{
   public currentUser: any;
 
   constructor(
-    public activatedRoute: ActivatedRoute,
     public router: Router,
     private messageService: MessageService,
     public translateService: TranslateService,
-    public signInService: SignInService
+    public signInService: SignInService,
+    public signUpService: SignUpService
   ) {
   }
 
@@ -31,20 +32,16 @@ export class AppComponent implements OnInit{
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
 
-    merge(this.signInService.currentUser)
+    merge(this.signInService.currentUser, this.signUpService.currentUser)
       .subscribe(
         data => {
           this.currentUser = data;
-          const activatedRouteSnapshot: ActivatedRouteSnapshot = this.activatedRoute.snapshot;
           const routerState: RouterState = this.router.routerState;
           const routerStateSnapshot: RouterStateSnapshot = routerState.snapshot;
 
-          console.log(activatedRouteSnapshot);
-          console.log(routerState);
-          console.log(routerStateSnapshot);
-
           // 如果是从/login这个URL进行的登录，跳转到首页，否则什么都不做
-          if (routerStateSnapshot.url.indexOf('/login') != -1) {
+          // tslint:disable-next-line:triple-equals
+          if (routerStateSnapshot.url.indexOf('/login') != -1 || routerStateSnapshot.url.indexOf('/register') != -1) {
             this.router.navigateByUrl('/home');
           }
         },

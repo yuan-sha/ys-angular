@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { fadeIn } from '../../../shared/animations/fade-in';
+import { SignUpService } from './sign-up.service';
+import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterState, RouterStateSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -34,7 +36,10 @@ export class SignUpComponent implements OnInit {
     }
   };
 
-  constructor(public fb: FormBuilder) { }
+  constructor(public fb: FormBuilder,
+              public router: Router,
+              public activatedRoute: ActivatedRoute,
+              public signUpService: SignUpService) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -88,6 +93,13 @@ export class SignUpComponent implements OnInit {
   }
 
   doRegister() {
+    if (this.userForm.valid) {
+      this.userInfo = this.userForm.value;
+      this.signUpService.register();
+    } else {
+      this.formErrors.formError = '存在不合法的输入项，请检查。';
+    }
+    console.log(this.userInfo);
   }
 
 }
