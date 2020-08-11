@@ -3,7 +3,7 @@ import { MessageService } from 'primeng/api';
 import { TranslateService } from '@ngx-translate/core';
 import { SignInService } from './blog/user/sign-in/sign-in.service';
 import { SignUpService } from './blog/user/sign-up/sign-up.service';
-import { ActivatedRoute, Router, RouterState, RouterStateSnapshot } from '@angular/router';
+import { Router, RouterState, RouterStateSnapshot } from '@angular/router';
 import { merge } from 'rxjs';
 
 @Component({
