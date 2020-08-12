@@ -23,6 +23,9 @@
         <li routerLinkActive="active">
           <a routerLink="post/write">{{'app.write' | translate}}</a>
         </li>
+        <li>
+          <a (click)="PopUp()">弹框测试</a>
+        </li>
       </ul>
       <ul *ngIf="!currentUser?.userName" class="nav navbar-nav navbar-right" (click)="onMenuToggle()">
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
@@ -75,3 +78,4 @@
     </div>
   </div>
 </div>
+<app-pop-up [modalData]="modalData" (modalActionEvent) = "modalAction($event)"></app-pop-up>

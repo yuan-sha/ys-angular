@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { PopUpComponent } from './blog/pop-up/pop-up.component';
 
 // 国际化模块
 export function createTranslateHttpLoader(http: HttpClient) {
@@ -26,7 +27,8 @@ export function createTranslateHttpLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     SignUpComponent,
-    RetrievePwdComponent
+    RetrievePwdComponent,
+    PopUpComponent
   ],
   imports: [
     BrowserModule,

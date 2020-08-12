@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
+import {Component, OnInit, ElementRef, Renderer2, Output} from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { TranslateService } from '@ngx-translate/core';
 import { SignInService } from './blog/user/sign-in/sign-in.service';
@@ -18,6 +18,7 @@ export class AppComponent implements OnInit{
   public currentUser: any;
   // tslint:disable-next-line:ban-types
   private globalClickCallbackFn: Function;
+  @Output() modalData: any;
 
   constructor(
     public elementRef: ElementRef,
@@ -87,4 +88,23 @@ export class AppComponent implements OnInit{
     this.router.navigateByUrl('');
   }
 
+  PopUp(){
+    this.modalData = { state: true, header: 'Confirm Login', flag: 'lock_account' };
+  }
+
+  modalAction(event) {
+    if (event === 'shadow_login') {
+      alert('shadow_login');
+    } else if (event === 'lock_account') {
+      alert('lock_account');
+    } else if (event === 'unlock_account') {
+      alert('unlock_account');
+    } else if (event === 'reset_pwd') {
+      alert('reset_pwd');
+    } else if (event === 'reset_crc') {
+      alert('reset_crc');
+    } else if (event === 'delete_account') {
+      alert('delete_account');
+    }
+  }
 }
