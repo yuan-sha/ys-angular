@@ -26,6 +26,9 @@
         <li>
           <a (click)="PopUp()">弹框测试</a>
         </li>
+        <li>
+          <a><app-timer></app-timer></a>
+        </li>
       </ul>
       <ul *ngIf="!currentUser?.userName" class="nav navbar-nav navbar-right" (click)="onMenuToggle()">
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
