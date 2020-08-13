@@ -1,4 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { SignInService } from '../user/sign-in/sign-in.service';
 
 @Component({
   selector: 'app-pop-up',
@@ -10,7 +13,9 @@ export class PopUpComponent implements OnInit {
   public isModalOpen: boolean;
   @Output() modalActionEvent = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(public router: Router,
+              private messageService: MessageService,
+              public signInService: SignInService) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +37,13 @@ export class PopUpComponent implements OnInit {
 
   closeModal() {
     this.isModalOpen = false;
+    this.logOut();
+  }
+
+  logOut(): void {
+    this.signInService.logout();
+    this.messageService.add({ severity: 'success', summary: 'Success Message', detail: '退出成功', life: 500 });
+    this.router.navigateByUrl('');
   }
 
   onModalConfirm() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -10,6 +10,7 @@ export class TimerComponent implements OnInit {
   minuteLeft;
   secnondLeft;
   interval;
+  @Output() modalData: any;
 
   constructor(private cookieService: CookieService) { }
 
@@ -46,8 +47,24 @@ export class TimerComponent implements OnInit {
   }
 
   openPopUp() {
-    alert('!!!');
+    this.modalData = { state: true, header: 'Confirm Login', flag: 'lock_account' };
     this.cookieService.set('time', '');
+  }
+
+  modalAction(event) {
+    if (event === 'shadow_login') {
+      alert('shadow_login');
+    } else if (event === 'lock_account') {
+      alert('lock_account');
+    } else if (event === 'unlock_account') {
+      alert('unlock_account');
+    } else if (event === 'reset_pwd') {
+      alert('reset_pwd');
+    } else if (event === 'reset_crc') {
+      alert('reset_crc');
+    } else if (event === 'delete_account') {
+      alert('delete_account');
+    }
   }
 
 }

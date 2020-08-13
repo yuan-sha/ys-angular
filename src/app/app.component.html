@@ -24,9 +24,6 @@
           <a routerLink="post/write">{{'app.write' | translate}}</a>
         </li>
         <li>
-          <a (click)="PopUp()">弹框测试</a>
-        </li>
-        <li>
           <a><app-timer></app-timer></a>
         </li>
       </ul>
@@ -81,4 +78,3 @@
     </div>
   </div>
 </div>
-<app-pop-up [modalData]="modalData" (modalActionEvent) = "modalAction($event)"></app-pop-up>
